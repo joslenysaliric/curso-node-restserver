@@ -10,7 +10,6 @@ const {validarCampos,validarJWT, esAdminRole, tieneRole} = require('../middlewar
 const router = Router();
 
 router.get('/', [
-  validarJWT, // Asegura que la ruta GET esté protegida por JWT
   query('limite').optional().isInt({ gt: 0 }).withMessage('El límite debe ser un número entero mayor que 0'),
   query('desde').optional().isInt({ gt: -1 }).withMessage('Desde debe ser un número entero mayor o igual a 0'),
   validarCampos
